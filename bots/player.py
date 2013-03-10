@@ -6,19 +6,19 @@ class Move:
 class Player(object):
     def __init__(self):
         
-        self.LENGTH = 5
-        self.BOARD_HEIGHT = 24
+        self.LENGTH = 8
+        self.BOARD_HEIGHT = 20
         self.BOARD_LENGTH = 32
         
         self.mNodes = [(0, 0)] * self.LENGTH
 
         self.isAlive = True
-        self.mFoodPoints = 0
+        self.mPoints = 0
+
+        self.mFoodPos = []
         
     def setStartPos(self, pos):
-        self.mNodes = []
-        for x in range(self.LENGTH):
-            self.mNodes.append(pos)
+        self.mNodes = [pos] * self.LENGTH
         
     def __str__(self):
         return "Default Bot"
@@ -34,6 +34,9 @@ class Player(object):
 
     def getPos(self):
         return self.mNodes[0]
+
+    def getFoodPos(self):
+        return self.mFoodPos
         
 if __name__ == "__main__":
     p = Player()
