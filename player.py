@@ -10,13 +10,11 @@ class Player(object):
         self.BOARD_HEIGHT = 24
         self.BOARD_LENGTH = 32
         
-        self.mNodes = []
-        
-        for x in range(self.LENGTH):
-            self.mNodes.append((0, 0,))
+        self.mNodes = [(0, 0)] * self.LENGTH
 
-        self.switch = False
-            
+        self.isAlive = True
+        self.mFoodPoints = 0
+        
     def setStartPos(self, pos):
         self.mNodes = []
         for x in range(self.LENGTH):
@@ -26,12 +24,7 @@ class Player(object):
         return "Default Bot"
         
     def getMove(self):
-        if self.switch:
-            self.switch = not self.switch
-            return Move.RIGHT
-        else:
-             self.switch = not self.switch
-             return Move.DOWN
+        return Move.DOWN
 
     def getColor(self):
         return (255, 0, 0)

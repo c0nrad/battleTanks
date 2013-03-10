@@ -35,8 +35,7 @@ class Board(QtGui.QWidget):
         self.mPlayerRectsMap = dict()
 
         # Little cheat so that startGame is called once the event engine is processing events (return app.exec())
-        QTimer.singleShot(0, self.startGame);
-
+        QTimer.singleShot(0, self.startGame)
 
     def getPlayerPosistions(self):
         return [p.mNodes[0] for p in self.mPlayers]
@@ -52,19 +51,27 @@ class Board(QtGui.QWidget):
         self.show()
 
     def startGame(self):
+        goodMessage("board::startGame: initalizing players!") 
         for player in self.mPlayers:
             infoMessage(player, " has joined the game!")
             self.drawPlayer(player)
-            player.init()
-
             player.setStartPos( ((randrange(0, self.GAME_WIDTH_SQUARES)), randrange(0, self.GAME_HEIGHT_SQUARES)))
+            player.init()
             
         qApp.processEvents()
         players = self.mPlayers
                     
         while True:
-            illegalMove = False
-            for player in players:
+            alivePlayers = [p for p in self.mPlayers if p.isAlive]
+
+            if len(alivePlayers) == 1:
+                goodMessage(alivePlayers[0], " has won the game!")
+                break
+            elif len(alivePlayers) == 0:
+                warningMessage("board::startGame: everyone died.. you guys suck")
+                break
+
+            for player in alivePlayers:
                 move = player.getMove()
 
                 self.movePlayer(player, move)
@@ -73,24 +80,27 @@ class Board(QtGui.QWidget):
                 qApp.processEvents()
 
                 if not self.isValidMove(player, player.mNodes[0]):
-                    illegalMove = True
-                    illegalPlayer = player
-                    break
+                    warningMessage("board::startGame: ", player, " has commited an illegal move")
+                    player.isAlive = False
+
+                deadPlayer = self.isHitPlayer(player, player.mNodes[0])
+                if deadPlayer in alivePlayers:
+                    warningMessage("board::startGame: ", player, "has hit ", deadPlayer)
+                    deadPlayer.isAlive = False
 
             self.updateBoard()
+
+    def isHitPlayer(self, player, move):
+        for p in [p for p in self.mPlayers if not p == player]:
+            for n in p.mNodes[1:]:
+                if n == move:
+                    return p
             
-            if illegalMove:
-                warningMessage(illegalPlayer, " made an illegal move")
-                illegalMove = False
-
-            if len(players) == 1:
-                goodMessage(players[0], "has won the game!")
-                break
-
     def updateBoard(self):
         self.mScene.clear()
-
-        for p in self.mPlayers:
+        alivePlayers = [p for p in self.mPlayers if p.isAlive]
+        
+        for p in alivePlayers:
             self.drawPlayer(p)
 
     def movePlayer(self, player, move):
