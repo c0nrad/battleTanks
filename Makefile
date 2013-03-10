@@ -6,5 +6,7 @@ clean:
 	touch lol.pyc
 	rm *~
 	rm *.pyc 
-
-
+	touch bots/lol.lol~
+	touch bots/lol.pyc
+	rm bots/*~
+	rm bots/*.pyc

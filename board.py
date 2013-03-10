@@ -9,9 +9,9 @@ from PyQt4.QtGui import *
 from PyQt4 import *
 
 # BOTS
-from player import Player
-from bounceBot import BounceBot
-from wallBot import WallBot
+from bots.player import Player
+from bots.bounceBot import BounceBot
+from bots.wallBot import WallBot
 
 class Move:
     UP, DOWN, LEFT, RIGHT = range(4)
