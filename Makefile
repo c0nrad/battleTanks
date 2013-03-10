@@ -1,5 +1,5 @@
 run:
-	python2.7 board.py
+	python2.7 battleTanks.py
 
 clean:
 	touch lol.lol~
