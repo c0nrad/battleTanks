@@ -1,14 +1,17 @@
-from player import Player
-from bounceBot import BounceBot
-from debug import *
 import sys
 import time
+from debug import *
 from random import randrange
 
 from PyQt4 import Qt
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4 import *
+
+# BOTS
+from player import Player
+from bounceBot import BounceBot
+from wallBot import WallBot
 
 class Move:
     UP, DOWN, LEFT, RIGHT = range(4)
@@ -112,8 +115,6 @@ class Board(QtGui.QWidget):
         if pos[1] < 0 or pos[1] >= 24:
             return False
         return True
-        
-            
                 
     def drawPlayer(self, player):
         playerTup = player.getColor()
@@ -123,22 +124,15 @@ class Board(QtGui.QWidget):
             (x, y) = self.convertCoords(n)
             self.mScene.addRect(x, y, 23, 23, QPen(), brush)
 
-    # (1, 1) -- > (25, 25)
     def convertCoords(self, coords):
         return ( coords[0] * 25 + 1, coords[1] * 25 + 1)
 
-    # (25, 25) --> (1, 1)
-#    def convertFromCoords(
 if __name__ == "__main__":
-
     app = QtGui.QApplication(sys.argv)
     app.connect(app, SIGNAL("lastWindowClosed()"), app, SLOT("quit()"))
     p = BounceBot()
-    p2 = BounceBot()
-    p2.setStartPos( (5, 5))
-    g = Board([p, p2])
-
-    #g.startGame([p])
+    p3 = WallBot()
+    g = Board([p, p3])
     
     sys.exit(app.exec_())
 
