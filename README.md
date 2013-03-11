@@ -45,7 +45,7 @@ class ExampleBot(Player):
     def __init__(self):
         # Make sure that the name of your Bot is in this function
         # But do not put anything else in here
-        super(Example, self).__init__()
+        super(ExampleBot, self).__init__()
         pass
 
     # In this function you can put whatever you need before the game starts.
@@ -93,3 +93,19 @@ self.getFoodPos():
 self.getAllPlayerPos():
    Returns a list of the posistions of all players (including self). [(1,2), (3, 4)]
 ```
+
+Installation
+-
+
+1. First, install PyQt4. _sudo apt-get install pyqt4_
+   * If you are on an inferior operation system (MacOS, M$ Windows...) use this install from [here](http://www.riverbankcomputing.com/software/pyqt/download)
+   
+2. Run the command _git clone https://github.com/c0nrad/battleTanks.git_ from terminal. If you're on an inferior operating system, just download the zip near the top of this page.
+
+3. Run the code by _make run_
+
+4. Enjoy!
+
+Questions/Comments
+-
+Please contact Stuart Larsen at (sclarse@mtu.edu)
