@@ -37,6 +37,9 @@ class Player(object):
 
     def getFoodPos(self):
         return self.mFoodPos
+
+    def getAllPlayerPos(self):
+        return self.mAllPlayerPos
         
 if __name__ == "__main__":
     p = Player()

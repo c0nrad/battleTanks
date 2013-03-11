@@ -78,7 +78,7 @@ class Board(QtGui.QWidget):
             # Tell players where the other players are
             for p in alivePlayers:
                 p.mAllPlayerPos = [player.getPos() for player in alivePlayers]
-                
+               
             # Handle Food
             if gameCounter % self.COUNT_PER_NEW_FOOD == 1:
                 foodPos = ((randrange(0, self.GAME_WIDTH_SQUARES)), randrange(0, self.GAME_HEIGHT_SQUARES))

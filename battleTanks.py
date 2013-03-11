@@ -1,3 +1,4 @@
+# Include your bot here
 from bots.player import Player
 from bots.bounceBot import BounceBot
 from bots.wallBot import WallBot

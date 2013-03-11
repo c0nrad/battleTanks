@@ -1,32 +1,14 @@
 from player import Player
 from debug import *
 
-# Helpful functions:
-#
-# self.LENGTH
-#    The length of your snake
-#
-# self.BOARD_HEIGHT
-#    The height of the board
-#
-# self.BOARD_LENGTH
-#    The length of the board
-#
-# self.getPos():
-#    Returns the posision of your head node. (x, y) 
-#
-# self.getFoodPos():
-#    Returns a list of food. [(3, 4), (5, 6)]
-#
-# self.getAllPlayerPos():
-#    Returns a list of the posistions of all players (including self). [(1,2), (3, 4)]
- 
+# This enumeration is how you specify what direction you want the tank to move.
+# For example Move.UP means up, Move.RIGHT means right.
 class Move:
     UP, DOWN, LEFT, RIGHT = range(4)
 
-class FoodBot(Player):
+class BounceBot(Player):
     def __init__(self):
-        super(FoodBot, self).__init__()
+        super(BounceBot, self).__init__()
         # DON'T PUT STUFF IN HERE
         pass
         
@@ -36,7 +18,7 @@ class FoodBot(Player):
         self.axisSwitch = False
         
     def __str__(self):
-        return "FoodBot"
+        return "BounceBot"
 
     def getColor(self):
         return (0, 255, 0)
@@ -44,21 +26,6 @@ class FoodBot(Player):
     def getMove(self):
         (x, y) = self.getPos()
 
-        if len(self.getFoodPos()) >= 1:
-            foodPos = self.getFoodPos()[0]
-            (dirX, dirY) = (x - foodPos[0], y - foodPos[1])
-            if abs(dirX) > abs(dirY):
-                if dirX < 0:
-                    return Move.RIGHT
-                else:
-                    return Move.LEFT
-            else:
-                if dirY < 0:
-                    return Move.DOWN
-                else:
-                    return Move.UP
-        
-        # Just do a zig zag if there's no food
         newPos = (x + self.mVelocityX, y + self.mVelocityY) 
         if x == 0:
             self.mVelocityX = 1

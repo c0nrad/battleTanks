@@ -21,7 +21,7 @@ Length of Tanks: 7
 Board Size: 20 - 32
 Points Per Kill: 3
 Points Per Food: 1
-
+Time till new food: 50
 How To Play
 -
 
@@ -74,4 +74,22 @@ class ExampleBot(Player):
 
 Useful Functions
 -
+'''python
+self.LENGTH
+   The length of your snake
 
+self.BOARD_HEIGHT
+   The height of the board
+
+self.BOARD_LENGTH
+   The length of the board
+
+self.getPos():
+   Returns the posision of your head node. (x, y) 
+
+self.getFoodPos():
+   Returns a list of food. [(3, 4), (5, 6)]
+
+self.getAllPlayerPos():
+   Returns a list of the posistions of all players (including self). [(1,2), (3, 4)]
+'''
