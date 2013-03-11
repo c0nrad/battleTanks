@@ -18,7 +18,7 @@ Constants
 -
 
 * Length of Tanks: 7
-* Board Size: 20 - 32
+* Board Size: (20,32)
 * Points Per Kill: 3
 * Points Per Food: 1
 * Time till new food: 50
@@ -109,4 +109,4 @@ Installation
 
 Questions/Comments
 -
-Please contact Stuart Larsen at (sclarse@mtu.edu)
+Please contact Stuart Larsen at (sclarsen@mtu.edu)
