@@ -17,11 +17,12 @@ The game ends when there is only one tank alive. To kill an enemy tank, your tan
 Constants
 -
 
-Length of Tanks: 7
-Board Size: 20 - 32
-Points Per Kill: 3
-Points Per Food: 1
-Time till new food: 50
+* Length of Tanks: 7
+* Board Size: 20 - 32
+* Points Per Kill: 3
+* Points Per Food: 1
+* Time till new food: 50
+
 How To Play
 -
 
