@@ -74,7 +74,7 @@ class ExampleBot(Player):
 
 Useful Functions
 -
-'''python
+```python
 self.LENGTH
    The length of your snake
 
@@ -92,4 +92,4 @@ self.getFoodPos():
 
 self.getAllPlayerPos():
    Returns a list of the posistions of all players (including self). [(1,2), (3, 4)]
-'''
+```
