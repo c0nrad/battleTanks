@@ -1,6 +1,5 @@
 from player import Player
 from debug import *
-
 # Helpful functions:
 #
 # self.LENGTH
@@ -14,6 +13,13 @@ from debug import *
 #
 # self.getPos():
 #    Returns the posision of your head node. (x, y) 
+#
+# self.getFoodPos():
+#    Returns a list of food. [(3, 4), (5, 6)]
+#
+# self.getAllPlayerPos():
+#    Returns a list of the posistions of all players (including self). [(1,2), (3, 4)]
+
 
 class Move:
     UP, DOWN, LEFT, RIGHT = range(4)

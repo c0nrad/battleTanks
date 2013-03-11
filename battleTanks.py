@@ -16,11 +16,15 @@ if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
     app.connect(app, SIGNAL("lastWindowClosed()"), app, SLOT("quit()"))
 
+    # Create an instance of your bot here
     bounceBot = BounceBot()
     wallBot = WallBot()
     foodBot = FoodBot()
-    
+
+    # In this list are the bots that will be battling. Up to 4
     bots = [ wallBot, foodBot]
+
+    # Play game!
     board = Board(bots)
     
     sys.exit(app.exec_())
