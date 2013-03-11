@@ -1,6 +1,8 @@
 Battle Tanks
 =========
 
+![battleTanks Gameplay](https://raw.github.com/c0nrad/battleTanks/master/gamePlay.png)
+
 Battle Tanks is a AI framework for creating simple Bots and Learning Python.
 
 The Game
